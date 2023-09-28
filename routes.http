@@ -1,0 +1,9 @@
+# @name create-user
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "johndoe@test.com",
+    "password": "123"
+}
