@@ -11,10 +11,13 @@ import UserSearch from "@/core/user/service/UserSearch";
 import UserSearchById from "@/core/user/service/UserSearchById";
 import UserDeleteById from './core/user/service/UserDeleteById';
 import DeleteUserByIdController from './adapters/controllers/user/DeleteUserByIdController';
+import UserUpdateById from './core/user/service/UserUpdateById';
+import UpdateUserByIdController from './adapters/controllers/user/UpdateUserByIdController';
 
 
 
 const userRepository = new UserRepositoryPrismaPg()
+const userRepositoryMemory = new UserRepositoryMemory()
 
 // use case -> controller -> user register
 const userRegister = new UserRegister(userRepository)
@@ -32,6 +35,9 @@ new SearchUserByIdController(app, userSearchById)
 const userDeleteById = new UserDeleteById(userRepository)
 new DeleteUserByIdController(app, userDeleteById)
 
+// use case -> controller -> user update by id
+const userUpdateById = new UserUpdateById(userRepository)
+new UpdateUserByIdController(app, userUpdateById)
 
 app.listen(3000);
 

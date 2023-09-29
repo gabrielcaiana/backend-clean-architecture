@@ -8,7 +8,7 @@ export default class UserRepositoryPrismaPg implements UserRepository {
   constructor() {
     this.prisma = new PrismaClient()
   }
- 
+  
   async searchEmail(email: string): Promise<User | null> {
     return this.prisma.user.findUnique({
       where: {
@@ -40,5 +40,14 @@ export default class UserRepositoryPrismaPg implements UserRepository {
       }
     });
     return;
+  }
+
+  updateById(id: number, user: User): Promise<User | null> {
+    return this.prisma.user.update({
+      where: {
+        id
+      },
+      data: user
+    })
   }
 }

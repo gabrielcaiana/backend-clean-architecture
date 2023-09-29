@@ -26,4 +26,14 @@ export default class UserRepositoryMemory implements UserRepository {
     this.users.splice(id, 1)
     return
   }
+
+  async updateById(id: number, user: User): Promise<User | null> {
+    const userToUpdated = this.users.find(u => u.id === id) || null;
+
+    if (userToUpdated) {
+      Object.assign(userToUpdated, user)
+    }
+
+    return userToUpdated
+  }
 }
