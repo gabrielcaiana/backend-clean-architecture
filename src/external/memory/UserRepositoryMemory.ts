@@ -9,8 +9,16 @@ export default class UserRepositoryMemory implements UserRepository {
   }
 
   async create(user: User): Promise<User> {
-    const newUser = { ...user, id: Math.random().toString() }
+    const newUser = { ...user, id: Math.random() }
     this.users.push(newUser)
     return newUser
+  }
+
+  async searchAll(): Promise<User[]> {
+    return this.users
+  }
+
+  async searchById(id: number): Promise<User | null> {
+    return this.users.find(user => user.id === id) || null
   }
 }
