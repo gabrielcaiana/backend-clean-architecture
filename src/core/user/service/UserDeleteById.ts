@@ -1,5 +1,5 @@
 import { UseCase } from "@/core/shared/UseCase";
-import UserRepository from "./UserRepository";
+import UserRepository from "@/core/user/repository/UserRepository";
 
 export default class UserDeleteById implements UseCase<number, void> {
   constructor(private readonly repository: UserRepository) { }

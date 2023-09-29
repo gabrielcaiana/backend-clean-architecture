@@ -1,5 +1,5 @@
 import { UseCase } from "@/core/shared/UseCase";
-import UserRepository from "@/core/user/service/UserRepository";
+import UserRepository from "@/core/user/repository/UserRepository";
 
 type Entry = {
   name: string

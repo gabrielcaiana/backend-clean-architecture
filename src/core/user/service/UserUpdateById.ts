@@ -1,6 +1,6 @@
 import { UseCase } from "@/core/shared/UseCase";
 import { User } from "@prisma/client";
-import UserRepository from "./UserRepository";
+import UserRepository from "@/core/user/repository/UserRepository";
 
 type Entry = {
   id: number
