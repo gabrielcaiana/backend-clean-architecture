@@ -32,4 +32,13 @@ export default class UserRepositoryPrismaPg implements UserRepository {
       }
     })
   }
+
+  async deleteById(id: number): Promise<void> {
+    await this.prisma.user.delete({
+      where: {
+        id
+      }
+    });
+    return;
+  }
 }

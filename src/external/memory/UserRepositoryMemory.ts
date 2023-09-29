@@ -21,4 +21,9 @@ export default class UserRepositoryMemory implements UserRepository {
   async searchById(id: number): Promise<User | null> {
     return this.users.find(user => user.id === id) || null
   }
+
+  async deleteById(id: number): Promise<void> {
+    this.users.splice(id, 1)
+    return
+  }
 }

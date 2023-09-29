@@ -5,4 +5,5 @@ export default interface UserRepository {
   searchById(id: number): Promise<User | null>;
   searchEmail(email: string): Promise<User | null>;
   create(user: Omit<User, "id" | "createdAt" | "updatedAt">): Promise<User>;
+  deleteById(id: number): Promise<void>;
 }

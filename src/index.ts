@@ -1,13 +1,16 @@
 import app from '@/external/api/config'
 
 import UserRepositoryMemory from "@/external/memory/UserRepositoryMemory";
+
 import UserRegister from "@/core/user/service/UserRegister";
-import RegisterUserController from "@/adapters/RegisterUserController";
+import RegisterUserController from "@/adapters/controllers/user/RegisterUserController";
 import UserRepositoryPrismaPg from "@/external/prisma/UserRepositoryPrismaPg";
-import UserSearch from "./core/user/service/UserSearch";
-import SearchUsersController from "./adapters/SearchUsersController";
-import UserSearchById from "./core/user/service/UserSearchById";
-import SearchUserByIdController from "./adapters/SearchUserByIdController";
+import SearchUsersController from "@/adapters/controllers/user//SearchUsersController";
+import SearchUserByIdController from "@/adapters/controllers/user//SearchUserByIdController";
+import UserSearch from "@/core/user/service/UserSearch";
+import UserSearchById from "@/core/user/service/UserSearchById";
+import UserDeleteById from './core/user/service/UserDeleteById';
+import DeleteUserByIdController from './adapters/controllers/user/DeleteUserByIdController';
 
 
 
@@ -25,6 +28,9 @@ new SearchUsersController(app, userSearch)
 const userSearchById = new UserSearchById(userRepository)
 new SearchUserByIdController(app, userSearchById)
 
+// use case -> controller -> user delete by id
+const userDeleteById = new UserDeleteById(userRepository)
+new DeleteUserByIdController(app, userDeleteById)
 
 
 app.listen(3000);

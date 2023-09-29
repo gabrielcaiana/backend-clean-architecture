@@ -17,3 +17,8 @@ GET http://localhost:3000/users
 
 # @name get-user-by-id
 GET http://localhost:3000/user/1
+
+###
+
+# @name delete-user
+DELETE http://localhost:3000/user/1
